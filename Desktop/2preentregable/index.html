@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Precios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin-right: 10px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        #resultados {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Simulador de Precios</h1>
+        <button onclick="mostrarProductos()">Mostrar Productos</button>
+        <button onclick="agregarNuevoProducto()">Agregar Nuevo Producto</button>
+        <button onclick="calcularPrecio()">Calcular Precios</button>
+
+        <div id="resultados">
+            <h2>Stock actual:</h2>
+            <ul id="listaProductos"></ul>
+        </div>
+
+        <div id="productosAgregados">
+            <h2>Productos Agregados:</h2>
+            <ul id="listaProductosAgregados"></ul>
+        </div>
+
+        <form id="formularioAgregarProducto">
+            <label for="nombreProducto">Nombre del Producto:</label>
+            <input type="text" id="nombreProducto" required>
+            <label for="precioProducto">Precio del Producto (en pesos):</label>
+            <input type="number" id="precioProducto" required>
+            <button type="button" onclick="agregarProductoDesdeFormulario()">Agregar Producto</button>
+        </form>
+
+        <form id="formularioCalcularPrecio">
+            <label for="opcionCalcularPrecio">Selecciona una opción:</label>
+            <select id="opcionCalcularPrecio" required>
+                <option value="1">Poner precio a productos guardados</option>
+                <option value="2">Agregar nuevo producto con precio propio</option>
+            </select>
+            <button type="button" onclick="calcularPrecio()">Calcular Precio</button>
+        </form>
+    </div>
+
+    <script defer src="main.js"></script>
+    
+</body>
+
+</html>
