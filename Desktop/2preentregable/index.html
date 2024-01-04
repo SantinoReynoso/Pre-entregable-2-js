@@ -41,36 +41,35 @@
 <body>
     <div>
         <h1>Simulador de Precios</h1>
-        <button onclick="mostrarProductos()">Mostrar Productos</button>
-        <button onclick="agregarNuevoProducto()">Agregar Nuevo Producto</button>
-        <button onclick="calcularPrecio()">Calcular Precios</button>
+
 
         <div id="resultados">
-            <h2>Stock actual:</h2>
+            <h2>Stock actual de nuestro mercado:</h2>
+            <button onclick="mostrarProductos()">Mostrar Productos</button>
             <ul id="listaProductos"></ul>
         </div>
 
         <div id="productosAgregados">
-            <h2>Productos Agregados:</h2>
+            <h2>Agregar productos:</h2>
             <ul id="listaProductosAgregados"></ul>
         </div>
 
         <form id="formularioAgregarProducto">
             <label for="nombreProducto">Nombre del Producto:</label>
             <input type="text" id="nombreProducto" required>
-            <label for="precioProducto">Precio del Producto (en pesos):</label>
+            <label for="precioProducto"> Precio del Producto (en pesos):</label>
             <input type="number" id="precioProducto" required>
-            <button type="button" onclick="agregarProductoDesdeFormulario()">Agregar Producto</button>
+            <button type="button" onclick="agregarNuevoProducto()">Agregar Producto al stock</button>
         </form>
 
-        <form id="formularioCalcularPrecio">
-            <label for="opcionCalcularPrecio">Selecciona una opción:</label>
-            <select id="opcionCalcularPrecio" required>
-                <option value="1">Poner precio a productos guardados</option>
-                <option value="2">Agregar nuevo producto con precio propio</option>
-            </select>
-            <button type="button" onclick="calcularPrecio()">Calcular Precio</button>
+        <form id="calcularPrecio">
+            <h3>CALCULADORA DE PRECIOS:</h3>
+            <h4>TOMARÁ EL PRODUCTO Y SU PRECIO Y DEVOLVERÁ EL PRECIO + IVA(21%) + GANANCIA SUGERIDA(25%)</h4>
+            <button onclick="calcularPrecio()">Calcular Precio de producto nuevo</button>
+        
+            </form>
         </form>
+
     </div>
 
     <script defer src="main.js"></script>

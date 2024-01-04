@@ -1,43 +1,32 @@
-// Productos en el stock actual
-const productos = [
-    { nombre: 'Producto 1', precio: 100 },
-    { nombre: 'Producto 2', precio: 200 },
-    { nombre: 'Producto 3', precio: 300 },
-];
-
-// Productos agregados por el usuario
-let productosAgregados = [];
-
-function mostrarProductos() {
-    const listaProductos = document.getElementById('listaProductos');
-    listaProductos.innerHTML = '';
-
-    for (let i = 0; i < productos.length; i++) {
-        const li = document.createElement('li');
-        li.textContent = `Nombre: ${productos[i].nombre}, Precio: ${productos[i].precio}`;
-        listaProductos.appendChild(li);
-    }
-}
-
+// Función para agregar un nuevo producto al stock
 function agregarNuevoProducto() {
-    const nombreProducto = document.getElementById('nombreProducto').value;
-    const precioProducto = parseInt(document.getElementById('precioProducto').value);
+    const nombreProducto = document.getElementById("nombreProducto").value;
+    const precioProducto = document.getElementById("precioProducto").value;
 
-    const nuevoProducto = { nombre: nombreProducto, precio: precioProducto };
-    productosAgregados.push(nuevoProducto);
+    if (nombreProducto !== "" && precioProducto !== "") {
+        const li = document.createElement("li");
+        li.innerHTML = `${nombreProducto} - Precio: $${precioProducto}`;
 
-    mostrarProductosAgregados();
-}
-
-function mostrarProductosAgregados() {
-    const listaProductosAgregados = document.getElementById('listaProductosAgregados');
-    listaProductosAgregados.innerHTML = '';
-
-    for (let i = 0; i < productosAgregados.length; i++) {
-        const li = document.createElement('li');
-        li.textContent = `Nombre: ${productosAgregados[i].nombre}, Precio: ${productosAgregados[i].precio}`;
-        listaProductosAgregados.appendChild(li);
+        document.getElementById("listaProductosAgregados").appendChild(li);
     }
 }
 
- calcularPrecio() 
+// Función para mostrar todos los productos del stock
+function mostrarProductos() {
+    const listaProductosAgregados = document.getElementById("listaProductosAgregados");
+
+    if (listaProductosAgregados.childElementCount > 0) {
+        for (let i = 0; i < listaProductosAgregados.childElementCount; i++) {
+            document.getElementById("listaProductos").appendChild(listaProductosAgregados.childNodes[i]);
+        }
+    } else {
+        const li = document.createElement("li");
+        li.innerHTML = "No hay productos hasta el momento.";
+        document.getElementById("listaProductos").appendChild(li);
+    }
+}
+
+// Función para calcular el precio de un producto nuevo
+function calcularPrecio() {
+    // Tu implementación de esta función aquí
+}
