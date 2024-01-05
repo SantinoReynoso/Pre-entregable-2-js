@@ -4,76 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Precios</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        button {
-            margin-right: 10px;
-        }
-
-        form {
-            margin-bottom: 20px;
-        }
-
-        #resultados {
-            margin-top: 20px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-    </style>
+    <title>Administrador de productos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <div>
-        <h1>Simulador de Precios</h1>
-
-
-        <div id="resultados">
-            <h2>Stock actual de nuestro mercado:</h2>
-            <button onclick="mostrarProductos()">Mostrar Productos</button>
-            <ul id="listaProductos"></ul>
-        </div>
-
-        <div id="productosAgregados">
-            <h2>Agregar productos:</h2>
-            <ul id="listaProductosAgregados"></ul>
-        </div>
-
-        <form id="formularioAgregarProducto">
-            <label for="nombreProducto">Nombre del Producto:</label>
-            <input type="text" id="nombreProducto" required>
-            <label for="precioProducto"> Precio del Producto (en pesos):</label>
-            <input type="number" id="precioProducto" required>
-            <button type="button" onclick="agregarNuevoProducto()">Agregar Producto al stock</button>
-        </form>
-
-        <form id="calcularPrecio">
-            <h3>CALCULADORA DE PRECIOS:</h3>
-            <h4>TOMARÁ EL PRODUCTO Y SU PRECIO Y DEVOLVERÁ EL PRECIO + IVA(21%) + GANANCIA SUGERIDA(25%)</h4>
-            <button onclick="calcularPrecio()">Calcular Precio de producto nuevo</button>
-        
-            </form>
-        </form>
-
-    </div>
-
+    <h1>Administrador de productos</h1>
+    <h2>Agregar un nuevo producto</h2>
+    <form id="formularioAgregarProducto">
+        <label for="nombreProducto">Nombre del producto:</label>
+        <input type="text" id="nombreProducto" name="nombreProducto">
+        <br>
+        <label for="precioProducto">Precio del producto:</label>
+        <input type="number" id="precioProducto" name="precioProducto">
+        <br>
+        <button type="button" id="btnAgregarProducto">Agregar producto</button>
+        <button type="button" id="btnCalcularPrecio">Calcular precio</button>
+        <button type="button" id="btnBorrarProductos">Borrar productos del stock</button>
+    </form>
+    <h2>Lista de productos en el stock</h2>
+    <ul id="listaProductos"></ul>
+    <p>----------------------</p>
+    <h2>Calculadora de precios</h2>
+    <label for="nombreBusqueda">Buscar producto por nombre:</label>
+    <input type="text" id="nombreBusqueda" name="nombreBusqueda">
+    <br>
+    <button type="button" id="btnBuscarYCalcularPrecio">Buscar y Calcular precio</button>
+    <h2>Tu producto:</h2>
+    <p id="resultado"></p>
     <script defer src="main.js"></script>
-    
 </body>
 
 </html>
