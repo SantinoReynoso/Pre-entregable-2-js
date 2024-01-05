@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador de productos</title>
+    <title>Controlador de stock</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <h1>Administrador de productos</h1>
+    <header>
+        <h1>Calculadora de precios</h1>
+    </header>
     <h2>Agregar un nuevo producto</h2>
     <form id="formularioAgregarProducto">
         <label for="nombreProducto">Nombre del producto:</label>
@@ -25,12 +27,14 @@
     <h2>Lista de productos en el stock</h2>
     <ul id="listaProductos"></ul>
     <p>----------------------</p>
-    <h2>Calculadora de precios</h2>
-    <label for="nombreBusqueda">Buscar producto por nombre:</label>
+    <h2>Buscador de productos</h2>
+    <label for="nombreBusqueda">Buscar producto por nombre</label>
     <input type="text" id="nombreBusqueda" name="nombreBusqueda">
     <br>
     <button type="button" id="btnBuscarYCalcularPrecio">Buscar y Calcular precio</button>
-    <h2>Tu producto:</h2>
+    <h2>Tus productos:</h2>
+    <p>----------------------</p>
+    <br>
     <p id="resultado"></p>
     <script defer src="main.js"></script>
 </body>
