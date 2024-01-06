@@ -18,12 +18,14 @@ header {
     border-radius: 10px;
     margin-top: 50px;
 }
-h1{
+
+h1 {
     color: #fff;
 }
+
 h2 {
     color: #333;
-}
+} 
 
 form {
     width: 100%;
@@ -33,7 +35,6 @@ form {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
 }
 
 label {
@@ -47,6 +48,7 @@ input {
     margin-bottom: 16px;
     box-sizing: border-box;
 }
+
 /* Ajustes para los botones en el formulario */
 form button {
     background-color: #333;
@@ -57,10 +59,25 @@ form button {
     cursor: pointer;
 }
 
-#btnCalcularPrecio{
-    margin-left: 160px;
-
+form, #productosSection, #resultado {
+    width: 45%; /* Ancho del contenedor de productos y resultado */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 50px;
 }
+#listaProductos{
+    background-color: #fff;
+    width: 30%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#btnCalcularPrecio {
+    margin-left: 160px
+}
+
 /* Botón "Borrar productos del stock" */
 #btnBorrarProductos {
     position: relative;
@@ -76,7 +93,8 @@ form button {
     width: 300px; 
     margin-left: 10px; 
 }
-#btnBuscarYCalcularPrecio{
+
+#btnBuscarYCalcularPrecio {
     background-color: #333;
     color: #fff;
     padding: 10px;
@@ -84,6 +102,7 @@ form button {
     border-radius: 10px;
     cursor: pointer; 
 }
+
 ul {
     list-style: none;
     padding: 0;
@@ -92,6 +111,11 @@ ul {
 p {
     text-align: center;
     margin: 20px 0;
-}
-
-/* Agrega más estilos según sea necesario */
+} 
+footer {
+    width: 97.9%;
+    height: 50px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px ;
+  }
