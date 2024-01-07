@@ -1,4 +1,4 @@
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const listaProductos = document.getElementById("listaProductos");
     const resultado = document.getElementById("resultado");
     let productosEnStock = [];
@@ -14,7 +14,7 @@
         listaProductos.innerHTML = "";
         for (const producto of productosEnStock) {
             const li = document.createElement("li");
-            li.textContent = `El producto ${producto.nombre} tiene un precio de lista de: $${producto.precio.toFixed(2)}`;
+            li.textContent = `\nEl producto ${producto.nombre} tiene un precio de lista de: $${producto.precio.toFixed(2)}\n`;
             listaProductos.appendChild(li);
         }
     }
@@ -76,6 +76,21 @@
         actualizarListaProductos();
     }
 
+    // función para mostrar el formulario de búsqueda y edición de producto
+    function mostrarFormularioBusquedaEdicion() {
+        const formularioBusquedaEdicion = document.getElementById("formularioBusquedaEdicion");
+        formularioBusquedaEdicion.style.display = "block";
+    }
+
+    // función para ocultar el formulario de búsqueda y edición de producto
+    function ocultarFormularioBusquedaEdicion() {
+        const formularioBusquedaEdicion = document.getElementById("formularioBusquedaEdicion");
+        formularioBusquedaEdicion.style.display = "none";
+
+        // Limpiar campos del formulario de búsqueda
+        document.getElementById("nombreBusquedaEdicion").value = "";
+    }
+
 // Event Listeners
     document.getElementById("btnAgregarProducto").addEventListener("click", function () {
         agregarProducto();
@@ -91,5 +106,14 @@
 
     document.getElementById("btnBorrarProductos").addEventListener("click", function () {
         borrarProductos();
+    });
+       // Event Listener para mostrar el formulario de búsqueda y edición
+       document.getElementById("btnMostrarFormularioBusqueda").addEventListener("click", function () {
+        mostrarFormularioBusquedaEdicion();
+    });
+
+    // Event Listener para ocultar el formulario de búsqueda y edición
+    document.getElementById("btnOcultarFormularioEdicion").addEventListener("click", function () {
+        ocultarFormularioBusquedaEdicion();
     });
 });
