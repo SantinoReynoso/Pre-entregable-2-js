@@ -26,12 +26,33 @@ header {
     margin: 20px;
 }
 .divEditarProductos{
-    width: 75%;
+    width: 70%;
+}
+.divEditarProductos h2{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.divEditarProductos #btnOcultarFormularioEdicion{
+    margin-left: 50px;
 }
 .divBuscadorProductos{
-    width: 25%;
+    width: 35%;
 }
-
+.divBuscadorProductos h2{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 10px;
+    margin-left: 35px;
+}
 h1 {
     color: #fff;
 }

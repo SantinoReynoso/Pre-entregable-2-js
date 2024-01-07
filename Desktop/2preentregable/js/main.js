@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             listaProductos.appendChild(li);
         }
     }
+    
 
     // función que agrega un producto al stock y lo guarda en localStorage
     function agregarProducto() {
