@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const listaProductos = document.getElementById("listaProductos");
     const resultado = document.getElementById("resultado");
     let productosEnStock = [];
+    let productoAEditarIndex = null; // Variable para almacenar el índice del producto que se está editando
 
 // Cargar productos almacenados en localStorage al iniciar la página
     if (localStorage.getItem("productosEnStock")) {
@@ -91,6 +92,71 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("nombreBusquedaEdicion").value = "";
     }
 
+    // función para abrir el formulario de edición de producto
+    function abrirFormularioEdicionProducto() {
+        const formularioEdicionProducto = document.getElementById("formularioEdicionProducto");
+        formularioEdicionProducto.style.display = "block";
+    }
+    // función para buscar un producto por nombre y mostrar el formulario de edición si se encuentra
+    function buscarYMostrarFormularioEdicion() {
+        const nombreBusquedaEdicion = document.getElementById("nombreBusquedaEdicion").value;
+        const productoEncontrado = productosEnStock.find(producto => producto.nombre === nombreBusquedaEdicion);
+
+        if (productoEncontrado) {
+            // Mostrar el formulario de edición de producto
+            abrirFormularioEdicionProducto();
+
+            // Limpiar campos de búsqueda
+            document.getElementById("nombreBusquedaEdicion").value = "";
+
+            // Mostrar el formulario de edición con los datos del producto
+            document.getElementById("nuevoNombreProducto").value = productoEncontrado.nombre;
+            document.getElementById("nuevoPrecioProducto").value = productoEncontrado.precio;
+
+            // Guardar el índice del producto encontrado para futuras ediciones
+            productoAEditarIndex = productosEnStock.indexOf(productoEncontrado);
+        } else {
+            // Mostrar mensaje de que no se encontró el nombre
+            mostrarMensajeBusqueda("No se encontró el producto con ese nombre.");
+        }
+    }
+
+    // función para guardar los cambios en el producto editado
+    function guardarCambiosEdicion() {
+        const nuevoNombre = document.getElementById("nuevoNombreProducto").value;
+        const nuevoPrecio = document.getElementById("nuevoPrecioProducto").value;
+
+        if (nuevoNombre !== "" && nuevoPrecio !== "" && productoAEditarIndex !== null) {
+            // Actualizar los datos del producto
+            productosEnStock[productoAEditarIndex].nombre = nuevoNombre;
+            productosEnStock[productoAEditarIndex].precio = parseFloat(nuevoPrecio);
+
+            // Ocultar el formulario de edición
+            ocultarFormularioEdicionProducto();
+
+            // Actualizar la lista y guardar en localStorage
+            localStorage.setItem("productosEnStock", JSON.stringify(productosEnStock));
+            actualizarListaProductos();
+        } else {
+            // Mostrar mensaje de que faltan campos
+            mostrarMensajeBusqueda("Por favor, completa todos los campos.");
+        }
+    }
+
+// función para ocultar el formulario de edición de producto
+function ocultarFormularioEdicionProducto() {
+    const formularioEdicionProducto = document.getElementById("formularioEdicionProducto");
+    formularioEdicionProducto.style.display = "none";
+
+    // Limpiar campos del formulario de edición
+    document.getElementById("nuevoNombreProducto").value = "";
+    document.getElementById("nuevoPrecioProducto").value = "";
+
+    // Restablecer la variable de índice a null
+    productoAEditarIndex = null;
+}
+
+
 // Event Listeners
     document.getElementById("btnAgregarProducto").addEventListener("click", function () {
         agregarProducto();
@@ -115,5 +181,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Event Listener para ocultar el formulario de búsqueda y edición
     document.getElementById("btnOcultarFormularioEdicion").addEventListener("click", function () {
         ocultarFormularioBusquedaEdicion();
+    });
+    // Event Listener para el botón "Buscar y Editar" en el formulario de búsqueda y edición
+    document.getElementById("btnBuscarYEditar").addEventListener("click", function () {
+        buscarYMostrarFormularioEdicion();
+    });
+    // Event Listener para el botón "Guardar Cambios" en el formulario de edición
+    document.getElementById("btnGuardarCambios").addEventListener("click", function () {
+        guardarCambiosEdicion();
     });
 });
