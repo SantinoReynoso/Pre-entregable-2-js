@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let productosEnStock = [];
     let productoAEditarIndex = null; // Variable para almacenar el índice del producto que se está editando
 
-// Cargar productos almacenados en localStorage al iniciar la página
+    // Cargar productos almacenados en localStorage al iniciar la página
     if (localStorage.getItem("productosEnStock")) {
         productosEnStock = JSON.parse(localStorage.getItem("productosEnStock"));
         actualizarListaProductos();
     }
 
-// función que actualiza la lista de productos en la página web
+    // función que actualiza la lista de productos en la página web
     function actualizarListaProductos() {
         listaProductos.innerHTML = "";
         for (const producto of productosEnStock) {
@@ -20,11 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-// función que agrega un producto al stock y lo guarda en localStorage
+    // función que agrega un producto al stock y lo guarda en localStorage
     function agregarProducto() {
         const nombreProducto = document.getElementById("nombreProducto").value;
         const precioProducto = document.getElementById("precioProducto").value;
 
+        // Validar que no estén vacíos los campos
         if (nombreProducto !== "" && precioProducto !== "") {
             const nuevoProducto = {
                 nombre: nombreProducto,
@@ -37,24 +38,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-// función que calcula el precio con IVA y ganancia de todos los productos juntos
+    // función que calcula el precio con IVA y ganancia de todos los productos juntos
     function calcularPrecio() {
-        resultado.innerHTML = ""; // Limpiamos el contenido anterior
-    
+        resultado.innerHTML = "";
         for (const producto of productosEnStock) {
             const precioConIVA = producto.precio * 1.21;
             const precioConGanancia = precioConIVA * 1.25;
-    
-            // Creamos un nuevo elemento <p> para mostrar la información de cada producto
+
+            // Creo un nuevo elemento <p> para mostrar la información de cada producto
             const productoInfo = document.createElement("p");
             productoInfo.textContent = `Producto: ${producto.nombre} - Precio de lista: $${producto.precio.toFixed(2)} - Precio con IVA y ganancia: $${precioConGanancia.toFixed(2)}`;
-    
-            // Añadimos el elemento al resultado
+
+            // Añado el elemento al resultado
             resultado.appendChild(productoInfo);
         }
     }
 
-// función para calcular en base al nombre del producto que quieras
+    // función para calcular en base al nombre del producto que quieras
     function buscarProductoYCalcularPrecio() {
         const nombreBusqueda = document.getElementById("nombreBusqueda").value;
         const productoEncontrado = productosEnStock.find(producto => producto.nombre === nombreBusqueda);
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-// función que borra todos los productos del stock y actualiza la lista y guarda en localStorage
+    // función que borra todos los productos del stock y actualiza la lista y guarda en localStorage
     function borrarProductos() {
         // Borra todos los productos del stock
         productosEnStock = [];
@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formularioEdicionProducto = document.getElementById("formularioEdicionProducto");
         formularioEdicionProducto.style.display = "block";
     }
+
     // función para buscar un producto por nombre y mostrar el formulario de edición si se encuentra
     function buscarYMostrarFormularioEdicion() {
         const nombreBusquedaEdicion = document.getElementById("nombreBusquedaEdicion").value;
@@ -143,21 +144,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-// función para ocultar el formulario de edición de producto
-function ocultarFormularioEdicionProducto() {
-    const formularioEdicionProducto = document.getElementById("formularioEdicionProducto");
-    formularioEdicionProducto.style.display = "none";
+    // función para ocultar el formulario de edición de producto
+    function ocultarFormularioEdicionProducto() {
+        const formularioEdicionProducto = document.getElementById("formularioEdicionProducto");
+        formularioEdicionProducto.style.display = "none";
 
-    // Limpiar campos del formulario de edición
-    document.getElementById("nuevoNombreProducto").value = "";
-    document.getElementById("nuevoPrecioProducto").value = "";
+        // Limpiar campos del formulario de edición
+        document.getElementById("nuevoNombreProducto").value = "";
+        document.getElementById("nuevoPrecioProducto").value = "";
 
-    // Restablecer la variable de índice a null
-    productoAEditarIndex = null;
-}
+        // Restablecer la variable de índice a null
+        productoAEditarIndex = null;
+    }
 
+    // función para mostrar mensajes de búsqueda
+    function mostrarMensajeBusqueda(mensaje) {
+        const mensajeBusqueda = document.getElementById("mensajeBusqueda");
+        mensajeBusqueda.textContent = mensaje;
+        mensajeBusqueda.style.display = "block";
+    }
 
-// Event Listeners
+    // Event Listeners
     document.getElementById("btnAgregarProducto").addEventListener("click", function () {
         agregarProducto();
     });
@@ -173,8 +180,9 @@ function ocultarFormularioEdicionProducto() {
     document.getElementById("btnBorrarProductos").addEventListener("click", function () {
         borrarProductos();
     });
-       // Event Listener para mostrar el formulario de búsqueda y edición
-       document.getElementById("btnMostrarFormularioBusqueda").addEventListener("click", function () {
+
+    // Event Listener para mostrar el formulario de búsqueda y edición
+    document.getElementById("btnMostrarFormularioBusqueda").addEventListener("click", function () {
         mostrarFormularioBusquedaEdicion();
     });
 
@@ -182,10 +190,12 @@ function ocultarFormularioEdicionProducto() {
     document.getElementById("btnOcultarFormularioEdicion").addEventListener("click", function () {
         ocultarFormularioBusquedaEdicion();
     });
+
     // Event Listener para el botón "Buscar y Editar" en el formulario de búsqueda y edición
     document.getElementById("btnBuscarYEditar").addEventListener("click", function () {
         buscarYMostrarFormularioEdicion();
     });
+
     // Event Listener para el botón "Guardar Cambios" en el formulario de edición
     document.getElementById("btnGuardarCambios").addEventListener("click", function () {
         guardarCambiosEdicion();
