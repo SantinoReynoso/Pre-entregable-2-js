@@ -19,6 +19,19 @@ header {
     margin-top: 50px;
 }
 
+
+.divs{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+.divEditarProductos{
+    width: 75%;
+}
+.divBuscadorProductos{
+    width: 25%;
+}
+
 h1 {
     color: #fff;
 }
