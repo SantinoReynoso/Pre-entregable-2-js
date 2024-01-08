@@ -12,7 +12,8 @@
     <header>
         <h1>Calculadora de precios</h1>
     </header>
-    <!-- form para agregar producto    -->
+
+    <!-- Formulario para agregar producto -->
     <h2>Agregar un nuevo producto</h2>
     <form id="formularioAgregarProducto">
         <label for="nombreProducto">Nombre del producto:</label>
@@ -25,59 +26,56 @@
         <button type="button" id="btnCalcularPrecio">Calcular precio</button>
         <button type="button" id="btnBorrarProductos">Borrar productos del stock</button>
     </form>
-    <!-- fin fordm para agregar producto     -->
+    <!-- Fin del formulario de agregar producto -->
 
-    <!-- seccion de mostarar los productos    -->
+    <!-- Sección para mostrar los productos -->
     <h2>Lista de productos en el stock</h2>
     <ul id="listaProductos"></ul>
-    <!-- fin seccion de mostrar los productos     -->
-
-     <!-- seccion botone de editar y ocultar    -->
-<div class="divs"> 
-<div class="divEditarProductos">
+    <!-- Fin de la sección de mostrar los productos -->
+    <!-- Sección para edicion y busqueda -->
+<div class="divs">
+    <div class="divEditarProductos">
         <h2>Editar productos del stock:</h2>
         <div id="formularioEdicion">
-        <button type="button" id="btnMostrarFormularioBusqueda">Buscar y Editar Producto</button>
-        <button type="button" id="btnOcultarFormularioEdicion">Ocultar Formulario de Edición</button>
-        <!-- fin seccion botones para editar o ocultar     -->
+            <button type="button" id="btnMostrarFormularioBusqueda">Abrir formulario de Edición</button>
+            <button type="button" id="btnOcultarFormularioEdicion">Ocultar Formulario de Edición</button>
 
-        <!-- fijarse que hace esto     -->
-        <div id="mensajeBusqueda" ></div>
-        <!-- fijarse que hace esto     -->
-        <div id="formularioBusquedaEdicion" style="display: none;" >
-        <h2>Buscar y Editar Producto</h2>
-        <form id="formBusquedaEdicion">
-            <label for="nombreBusquedaEdicion">Nombre del producto:</label>
-            <input type="text" id="nombreBusquedaEdicion" name="nombreBusquedaEdicion">
-                <br>
-            <button type="button" id="btnBuscarYEditar">Buscar y Editar</button>
-        </form>
-    </div>
+            <!-- Área de edición -->
+            <div id="mensajeBusqueda"></div>
+            <div id="formularioBusquedaEdicion" style="display: none;">
+                <h2>Buscar y Editar Producto</h2>
+                <form id="formBusquedaEdicion">
+                    <label for="nombreBusquedaEdicion">Nombre del producto:</label>
+                    <input type="text" id="nombreBusquedaEdicion" name="nombreBusquedaEdicion">
+                    <br>
+                    <button type="button" id="btnBuscarYEditar">Buscar y Editar</button>
+                </form>
+            </div>
 
-        <div id="formularioEdicionProducto" style="display: none;">
-            <h2>Editar Producto</h2>
-            <form id="formEdicionProducto">
-                <label for="nuevoNombreProducto">Nuevo nombre:</label>
-                <input type="text" id="nuevoNombreProducto" name="nuevoNombreProducto">
+            <div id="formularioEdicionProducto" style="display: none;">
+                <h2>Editar Producto</h2>
+                <form id="formEdicionProducto">
+                    <label for="nuevoNombreProducto">Nuevo nombre:</label>
+                    <input type="text" id="nuevoNombreProducto" name="nuevoNombreProducto">
                     <br>
-                <label for="nuevoPrecioProducto">Nuevo precio:</label>
-                <input type="number" id="nuevoPrecioProducto" name="nuevoPrecioProducto">
+                    <label for="nuevoPrecioProducto">Nuevo precio:</label>
+                    <input type="number" id="nuevoPrecioProducto" name="nuevoPrecioProducto">
                     <br>
-                <button type="button" id="btnGuardarCambios">Guardar Cambios</button>
-            </form>
+                    <button type="button" id="btnGuardarCambios">Guardar Cambios</button>
+                </form>
+            </div>
+            <!-- Fin del área de edición -->
         </div>
     </div>
-</div>
-
-     <!-- fin seccion de editar     -->
     <div class="divBuscadorProductos">
         <h2>Buscador</h2>
-        <label for="nombreBusqueda">Buscar producto por nombre</label>
-        <input type="text" id="nombreBusqueda" name="nombreBusqueda">
-        <br>
-        <button type="button" id="btnBuscarYCalcularPrecio">Buscar y Calcular precio</button>
+            <label for="nombreBusqueda">Buscar producto por nombre</label>
+            <input type="text" id="nombreBusqueda" name="nombreBusqueda">
+            <br>
+            <button type="button" id="btnBuscarYCalcularPrecio">Buscar y Calcular precio</button>
     </div>
 </div>
+    <!-- fin Sección para edicion y busqueda -->
     <h2>Productos cargados:</h2>
     <p>----------------------</p>
     <br>
@@ -85,6 +83,6 @@
     <script defer src="./js/main.js"></script>
     </body>
     <footer>
-    <p>&copy; 2023 Calculadora de precios</p>
+        <p>&copy; 2023 Calculadora de precios</p>
     </footer>
-    </html>
+</html>

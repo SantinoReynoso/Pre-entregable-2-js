@@ -19,47 +19,51 @@ header {
     margin-top: 50px;
 }
 
-
-.divs{
+.divs {
     display: flex;
     justify-content: space-between;
     margin: 20px;
 }
-.divEditarProductos{
+
+.divEditarProductos {
     width: 70%;
 }
-.divEditarProductos h2{
+
+.divEditarProductos h2 {
     background-color: #333;
     color: #fff;
     text-align: center;
     border-radius: 10px;
     margin-top: 50px;
     margin-right: 60px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
 }
-.divEditarProductos #btnOcultarFormularioEdicion{
+
+.divEditarProductos #btnOcultarFormularioEdicion {
     margin-left: 50px;
 }
-.divBuscadorProductos{
-    width: 35%;
+
+.divBuscadorProductos {
+    width: 30%;
 }
-.divBuscadorProductos h2{
+
+.divBuscadorProductos h2 {
     background-color: #333;
     color: #fff;
     text-align: center;
     border-radius: 10px;
     margin-top: 50px;
-    padding: 10px;
     margin-left: 35px;
+    padding: 10px;
 }
+
 h1 {
     color: #fff;
 }
 
 h2 {
     color: #333;
-} 
+}
 
 form {
     width: 100%;
@@ -83,7 +87,6 @@ input {
     box-sizing: border-box;
 }
 
-/* Ajustes para los botones en el formulario */
 form button {
     background-color: #333;
     color: #fff;
@@ -93,7 +96,8 @@ form button {
     cursor: pointer;
 }
 
-#btnMostrarFormularioBusqueda {
+#btnMostrarFormularioBusqueda,
+#btnOcultarFormularioEdicion {
     background-color: #333;
     color: #fff;
     padding: 10px;
@@ -101,23 +105,19 @@ form button {
     border-radius: 4px;
     cursor: pointer;
 }
-#btnOcultarFormularioEdicion{
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer; 
-}
-form, #productosSection, #resultado {
-    width: 45%; /* Ancho del contenedor de productos y resultado */
+
+form,
+#productosSection,
+#resultado {
+    width: 45%;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding-bottom: 50px;
 }
-#listaProductos{
+
+#listaProductos {
     background-color: #fff;
     width: 30%;
     padding: 20px;
@@ -125,23 +125,22 @@ form, #productosSection, #resultado {
 }
 
 #btnCalcularPrecio {
-    margin-left: 160px
+    margin-left: 160px;
 }
 
-/* Botón "Borrar productos del stock" */
 #btnBorrarProductos {
     position: relative;
     top: 50px;
     left: 100px;
     transform: translate(-50%, -50%);
-    padding: 20px 20px; 
-    margin-left: 100px; 
+    padding: 20px 20px;
+    margin-left: 100px;
     border-radius: 10px;
 }
 
 #nombreBusqueda {
-    width: 300px; 
-    margin-left: 10px; 
+    width: 300px;
+    margin-left: 10px;
 }
 
 #btnBuscarYCalcularPrecio {
@@ -150,7 +149,7 @@ form, #productosSection, #resultado {
     padding: 10px;
     border: none;
     border-radius: 10px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 ul {
@@ -161,11 +160,12 @@ ul {
 p {
     text-align: center;
     margin: 20px 0;
-} 
+}
+
 footer {
     width: 97.9%;
     height: 50px;
     background-color: #333;
     color: #fff;
-    padding: 20px ;
-  }
+    padding: 20px;
+}
