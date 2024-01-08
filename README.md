@@ -1,1 +1,2 @@
 # Pre-entregable-2-js
+Este programa es un simulador de precios diseñado para gestionar productos en un inventario. Permite realizar varias acciones, como cargar nuevos productos, borrar productos existentes, calcular el precio de venta al público (sumando el IVA y una ganancia), editar productos ya cargados y filtrar/buscar productos por su nombre. En resumen, es una herramienta versátil que facilita la gestión y simulación de precios para productos en un entorno de inventario.
